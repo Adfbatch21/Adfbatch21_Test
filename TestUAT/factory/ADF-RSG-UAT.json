@@ -1,0 +1,9 @@
+{
+	"name": "ADF-RSG-UAT",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b53cfe44-b0ac-49d8-bfde-aa6e51a3e7fc",
+		"tenantId": "21e9fc0d-7456-4964-8e42-289bdad7d72a"
+	}
+}
