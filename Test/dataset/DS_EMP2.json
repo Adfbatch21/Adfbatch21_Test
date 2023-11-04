@@ -1,0 +1,18 @@
+{
+	"name": "DS_EMP2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_STG_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "EMP.TXT",
+				"container": "container-rsgdev"
+			}
+		}
+	}
+}
