@@ -1,0 +1,38 @@
+{
+	"name": "DS_SRC_EMP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_STG_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DS_P_Filename": {
+				"type": "string",
+				"defaultValue": "EMP.TXT"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().DS_P_Filename",
+					"type": "Expression"
+				},
+				"container": "container-rsgdev"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "\"EMP_ID\"|\"ENAME\"|\"DESIGNATION\"|\"SALARY\"|\"HIREDATE\"|\"DEPTNO\"",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

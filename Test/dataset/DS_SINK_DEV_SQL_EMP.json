@@ -1,0 +1,47 @@
+{
+	"name": "DS_SINK_DEV_SQL_EMP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADF_DEV_SQL_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "EMPID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ENAME",
+				"type": "varchar"
+			},
+			{
+				"name": "DESIGNATION",
+				"type": "varchar"
+			},
+			{
+				"name": "SALARY",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "HIREDATE",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "DEPTNO",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TGT_EMP"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

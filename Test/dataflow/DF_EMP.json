@@ -1,0 +1,66 @@
+{
+	"name": "DF_EMP",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_SRC_EMP",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_SINK_DEV_SQL_EMP",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          EMP_ID as integer,",
+				"          ENAME as string,",
+				"          DESIGNATION as string,",
+				"          SALARY as integer,",
+				"          HIREDATE as date,",
+				"          DEPTNO as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          EMPID as integer,",
+				"          ENAME as string,",
+				"          DESIGNATION as string,",
+				"          SALARY as integer,",
+				"          HIREDATE as timestamp,",
+				"          DEPTNO as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          EMPID = EMP_ID,",
+				"          ENAME,",
+				"          DESIGNATION,",
+				"          SALARY,",
+				"          HIREDATE,",
+				"          DEPTNO",
+				"     )) ~> sink1"
+			]
+		}
+	}
+}

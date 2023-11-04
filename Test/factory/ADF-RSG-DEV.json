@@ -1,0 +1,9 @@
+{
+	"name": "ADF-RSG-DEV",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "92a3167f-af72-4760-b0e5-6382a608c815",
+		"tenantId": "21e9fc0d-7456-4964-8e42-289bdad7d72a"
+	}
+}
